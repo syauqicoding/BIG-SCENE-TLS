@@ -1,0 +1,76 @@
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
+#include <math.h>
+using namespace std;
+
+class program { //membuat fungsi class 
+	public :	 
+    int i, j, n;
+    double k, L;
+
+void pemograman (){//Memasukkan nilai jumlah baris yang diinginkan
+cout << "Masukkan random angka untuk masuk ke dalam program: ";
+cin >> n;
+k = n*n*2;//rumus menghitung luas kosong
+}  
+ void pusing (){// fungsi untuk membuat dan membuka file
+ ofstream MyFile("Syauqi_file.txt");
+  
+  MyFile << "Nama \t\t\t: Muhammad Syauqi Fittuqo" << endl; //fungsi untuk membaca file atau output file
+  MyFile << "NIM \t\t\t: 22/543713/TK/60433" << endl;
+  MyFile << "Kelompok\t\t: Euler" << endl;
+  MyFile << "\n//Program Mencetak Persegi dan Diamond Berongga//"<< endl;
+  MyFile << "Output Program ini memiliki panjang = " << 2*n << " tagar" << endl;
+  MyFile << "Luas Belah Ketupat di dalam persegi = " << k << " tagar\n" << endl;
+    
+    for (i = 0; i < n; i++) { //perulangan untuk membuat segitiga atas sesuai baris yang diinginkan
+    
+        //perulangan untuk membuat segitiga atas 
+        for (j = 0; j < (2 * n); j++) {
+            
+            //syarat membuat segitiga atas bagian kiri
+           if (i + j <= n - 1)
+                MyFile << "#";
+           else
+                MyFile << " ";
+                
+            ///syarat membuat segitiga atas bagian kanan  
+            if ((i + n) <= j)
+                MyFile << "#";
+            else
+                MyFile << " ";
+        }
+        MyFile << "\n";
+    }
+    
+    for (i = 0; i < n; i++) { //perulangan untuk membuat segitiga bawah sesuai baris yang diinginkan
+        
+        //perulangan membuat segitiga bawah 
+        for (j = 0; j < (2 * n); j++) {
+            
+            //syarat membuat segitiga bawah bagian kiri
+            if (i >= j)
+                MyFile << "#";
+            else
+                MyFile << " ";
+            
+            //syarat membuat segitiga bawah bagian kanan
+            if (i >= (2 * n - 1) - j)
+                MyFile << "#";
+            else
+             MyFile << " ";
+        }
+        MyFile << "\n";
+    }
+    
+  MyFile.close(); //menutup file
+ } 
+};
+
+int main (){
+   program baru;
+   baru.pemograman();
+   baru.pusing();
+return 0;
+}
